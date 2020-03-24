@@ -13,7 +13,8 @@ public class Hello2 {
             int age = Integer.parseInt(s);
             System.out.println(Math.sqrt(age*10));
         }catch (NumberFormatException e){
-            System.out.println("error");
+            //System.out.println("error");
+            //e.printStackTrace();
         }
     }
 }

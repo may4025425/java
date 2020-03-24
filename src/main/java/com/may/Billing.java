@@ -1,5 +1,6 @@
 package com.may;
 
+
 import java.util.Scanner;
 
 public class Billing {
@@ -8,17 +9,19 @@ public class Billing {
         System.out.println("Total:");
         int total = Integer.parseInt(scanner.nextLine());
         System.out.println("Need to split bill?");
-        String yn = scanner.nextLine();
-        if(yn.equalsIgnoreCase("y")){
+        String yesorno = scanner.nextLine();
+        if(yesorno.equalsIgnoreCase("y")){
             System.out.println("How many kids?");
             try{
                 int n = Integer.parseInt(scanner.nextLine());
                 int eachPaid = total / n;
                 System.out.println(eachPaid + " for each ");
             }catch (NumberFormatException e){
-                System.out.println("Hello?");
+                //System.out.println("Hello?");
+                e.printStackTrace();
             }catch (ArithmeticException e){
-                System.out.println("Hello");
+               //System.out.println("Hello");
+                e.printStackTrace();
             }
         }
     }
