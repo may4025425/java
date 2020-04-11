@@ -10,10 +10,15 @@ public class PiggyBank {
         do{
             System.out.println("請投入1元,5元或10元硬幣（輸入1,5,10）");
             int money = Integer.parseInt(scanner.nextLine());
-            total = total + money;
-            System.out.println("目前的總和：" + total + "元");
-            System.out.println("是否繼續投幣？（yes or no)");
-            yesorno = scanner.nextLine();
+            if (money == 1 | money == 5 | money == 10) {
+                total = total + money;
+                System.out.println("目前的總和：" + total + "元");
+                System.out.println("是否繼續投幣？（yes or no)");
+                yesorno = scanner.nextLine();
+            }else{
+                System.out.println("無法處理!");
+                yesorno = "n";
+            }
 
         }while (yesorno.equalsIgnoreCase("y"));
 
