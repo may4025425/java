@@ -12,7 +12,7 @@ public class FileTester {
         System.out.println(file.);
  */
         try {
-            FileWriter writer = new FileWriter("abc.txt");
+            FileWriter writer = new FileWriter("data.txt");
             writer.write(65);
             writer.write(66);
             writer.write("66,65");

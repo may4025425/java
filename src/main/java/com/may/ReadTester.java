@@ -5,7 +5,7 @@ import java.io.*;
 public class ReadTester {
     public static void main(String[] args) {
         try {
-            FileReader fr = new FileReader("test.txt");
+            FileReader fr = new FileReader("abc.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
             while (line !=null){
