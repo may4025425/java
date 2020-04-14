@@ -1,10 +1,49 @@
 package com.may;
 
+
+import java.io.*;
 import java.util.Scanner;
 
 public class PiggyBank {
-    public static void main(String[] args) {
-
+    public static void main(String[] args)  {
+        Scanner scanner = new Scanner(System.in);
+        int n = 0;
+        int total = 0;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
+            try {
+                total = Integer.parseInt(bufferedReader.readLine());
+                bufferedReader.close();
+            } catch (NumberFormatException e) {
+                total = 0;
+            } catch (IOException e) {
+                e.printStackTrace();
+                total = 0;
+            }
+            System.out.println("Total: " + total);
+            System.out.println("Please put your coin?");
+            while (n != -1) {
+                n = scanner.nextInt();
+                switch (n) {
+                    case 1:
+                    case 5:
+                    case 10:
+                        total = total + n;
+                        FileWriter fileWriter = new FileWriter("data.txt",false);
+                        fileWriter.write(String.valueOf(total));
+                        fileWriter.flush();
+                        fileWriter.close();
+                        break;
+                    default:
+                }
+                System.out.println("Total: " + total);
+            }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+/*
         Scanner scanner = new Scanner(System.in);
         String yesorno;
         int total = 0;
@@ -33,7 +72,7 @@ public class PiggyBank {
             }
 
         }while (yesorno.equalsIgnoreCase("y"));
-
+*/
    /*
         Scanner scanner = new Scanner(System.in);
         System.out.println("請投入1元,5元或10元硬幣（輸入1,5,10）");
