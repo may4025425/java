@@ -5,10 +5,21 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PiggyBank {
+    public String total;
+    public void add(int n) {
+
+    }
+
+    public void showCoins() {
+
+    }
+}
+    /*
     public static void main(String[] args)  {
         Scanner scanner = new Scanner(System.in);
         int n = 0;
         int total = 0;
+        int ones = 0,fives = 0,tens = 0;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
             try {
@@ -26,24 +37,30 @@ public class PiggyBank {
                 n = scanner.nextInt();
                 switch (n) {
                     case 1:
+                        ones++;
+                        break;
                     case 5:
+                        fives++;
+                        break;
                     case 10:
-                        total = total + n;
-                        FileWriter fileWriter = new FileWriter("data.txt",false);
-                        fileWriter.write(String.valueOf(total));
-                        fileWriter.flush();
-                        fileWriter.close();
+                        tens++;
                         break;
                     default:
                 }
+                total = total + n;
                 System.out.println("Total: " + total);
+                FileWriter fileWriter = new FileWriter("data.txt",false);
+                fileWriter.write(String.valueOf(total));
+                fileWriter.flush();
+                fileWriter.close();
             }
         }catch (FileNotFoundException e){
             e.printStackTrace();
         } catch(IOException e) {
             e.printStackTrace();
         }
-/*
+         */
+    /*
         Scanner scanner = new Scanner(System.in);
         String yesorno;
         int total = 0;
@@ -111,64 +128,3 @@ public class PiggyBank {
         }
 */
 
-
-
-
-/*
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("請投入1元,5元或10元硬幣（輸入1,5,10）");
-        int coin = Integer.parseInt(scanner.nextLine());
-        int total = 0;
-        if (coin == 1 | coin == 5 | coin == 10) {
-            while (coin > 0) {
-                switch (coin) {
-                    case 1:
-                        total = total + coin;
-                        System.out.println("目前的總和：" + total + "元");
-                        System.out.println("是否繼續投幣？（y or n)");
-                        String yesorno = scanner.nextLine();
-                        if (yesorno.equalsIgnoreCase("y")) {
-                            System.out.println("請投入1元,5元或10元硬幣（輸入1,5,10）");
-                            coin = Integer.parseInt(scanner.nextLine());
-                        } else {
-                            coin = 0;
-                        }
-                        break;
-                    case 5:
-                        total = total + coin;
-                        System.out.println("目前的總和：" + total + "元");
-                        System.out.println("是否繼續投幣？（y or n)");
-                        yesorno = scanner.nextLine();
-                        if (yesorno.equalsIgnoreCase("y")) {
-                            System.out.println("請投入1元,5元或10元硬幣（輸入1,5,10）");
-                            coin = Integer.parseInt(scanner.nextLine());
-                        } else {
-                            coin = 0;
-                        }
-                        break;
-                    case 10:
-                        total = total + coin;
-                        System.out.println("目前的總和：" + total + "元");
-                        System.out.println("是否繼續投幣？（y or n)");
-                        yesorno = scanner.nextLine();
-                        if (yesorno.equalsIgnoreCase("y")) {
-                            System.out.println("請投入1元,5元或10元硬幣（輸入1,5,10）");
-                            coin = Integer.parseInt(scanner.nextLine());
-                        } else {
-                            coin = 0;
-                        }
-                        break;
-                    default:
-                        System.out.println("無法處理！");
-                        System.out.println("目前的總和：" + total + "元");
-                        coin = 0;
-                        break;
-                }
-            }
-        } else {
-            System.out.println("無法處理！");
-        }
-*/
-
-    }
-}
