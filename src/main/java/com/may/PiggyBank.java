@@ -5,8 +5,30 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PiggyBank {
-    public String total;
+     int total = 0;
+     File dataFile =new File("piggy.txt");
+    public PiggyBank(){
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(dataFile);
+            total = fileReader.read();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void add(int n) {
+        total = total + n;
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(dataFile);
+            fileWriter.write(total);
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -14,12 +36,11 @@ public class PiggyBank {
 
     }
 }
-    /*
-    public static void main(String[] args)  {
+     /*   public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = 0;
         int total = 0;
-        int ones = 0,fives = 0,tens = 0;
+        int ones = 0, fives = 0, tens = 0;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
             try {
@@ -49,17 +70,19 @@ public class PiggyBank {
                 }
                 total = total + n;
                 System.out.println("Total: " + total);
-                FileWriter fileWriter = new FileWriter("data.txt",false);
+                FileWriter fileWriter = new FileWriter("data.txt", false);
                 fileWriter.write(String.valueOf(total));
                 fileWriter.flush();
                 fileWriter.close();
             }
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-         */
+
+    }
+}*/
     /*
         Scanner scanner = new Scanner(System.in);
         String yesorno;

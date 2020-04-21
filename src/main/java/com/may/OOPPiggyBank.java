@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class OOPPiggyBank {
     public static void main(String[] args) {
-        PiggyBank piggyBank = new PiggyBank();
+        PiggyBank piggybank = new PiggyBank();
         Scanner scanner = new Scanner(System.in);
         int n = 0;
-        System.out.println("Total: " + piggyBank.total);
+        System.out.println("Total: " + piggybank.total);
         System.out.println("Please put your coin?");
         while (n != -1){
             n = scanner.nextInt();
@@ -15,12 +15,12 @@ public class OOPPiggyBank {
                 case 1:
                 case 5:
                 case 10:
-                    piggyBank.add(n);
+                    piggybank.add(n);
                     break;
                 default:
             }
-            System.out.println("Total: " + piggyBank.total);
-            piggyBank.showCoins();
+            System.out.println("Total: " + piggybank.total);
+            piggybank.showCoins();
         }
     }
 }
