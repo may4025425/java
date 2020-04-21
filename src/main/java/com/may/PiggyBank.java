@@ -6,34 +6,65 @@ import java.util.Scanner;
 
 public class PiggyBank {
      int total = 0;
+    int ones = 0, fives = 0, tens;
      File dataFile =new File("piggy.txt");
     public PiggyBank(){
         FileReader fileReader = null;
         try {
             fileReader = new FileReader(dataFile);
-            total = fileReader.read();
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String s = bufferedReader.readLine();
+            total = Integer.parseInt(s);
+            ones = Integer.parseInt(bufferedReader.readLine());
+            fives = Integer.parseInt(bufferedReader.readLine());
+            tens = Integer.parseInt(bufferedReader.readLine());
+           // total = fileReader.read();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }catch (NumberFormatException e ){
+            e.printStackTrace();
+        }
+    }
+    public  void setTotal(int total){
+        this.total = this.total + total;
+        try {
+            FileWriter fileWriter = new FileWriter(dataFile);
+            fileWriter.write(this.total +"\n");
+            fileWriter.write(ones+"\n");
+            fileWriter.write(fives+"\n");
+            fileWriter.write(tens+"");
+            fileWriter.flush();
+            fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public void add(int n) {
         total = total + n;
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter(dataFile);
-            fileWriter.write(total);
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        switch (n){
+            case 1:
+                ones =ones + 1;
+                setTotal(total+n);
+                break;
+            case 5:
+                fives += 1;
+                setTotal(total+n);
+                break;
+            case 10 :
+                tens += 1;
+                setTotal(total+n);
+                break;
+            default:
+                break;
         }
+
 
     }
 
     public void showCoins() {
-
+        System.out.println("1: " + ones +"5: " + fives +"10: " + tens );
     }
 }
      /*   public static void main(String[] args) {
