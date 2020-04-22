@@ -5,7 +5,16 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PiggyBank {
-     int total = 0;
+/*    int total;//預設值為0
+
+    public void add(int n) {
+
+    }
+
+    public void showCoins() {
+
+    }*/
+    int total = 0;
     int ones = 0, fives = 0, tens;
      File dataFile =new File("piggy.txt");
     public PiggyBank(){
@@ -18,7 +27,6 @@ public class PiggyBank {
             ones = Integer.parseInt(bufferedReader.readLine());
             fives = Integer.parseInt(bufferedReader.readLine());
             tens = Integer.parseInt(bufferedReader.readLine());
-           // total = fileReader.read();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -42,30 +50,31 @@ public class PiggyBank {
         }
     }
     public void add(int n) {
-        total = total + n;
         switch (n){
             case 1:
                 ones =ones + 1;
-                setTotal(total+n);
+                setTotal(n);
                 break;
             case 5:
                 fives += 1;
-                setTotal(total+n);
+                setTotal(n);
                 break;
             case 10 :
                 tens += 1;
-                setTotal(total+n);
+                setTotal(n);
                 break;
             default:
                 break;
         }
-
-
     }
 
     public void showCoins() {
-        System.out.println("1: " + ones +"5: " + fives +"10: " + tens );
+        System.out.println("1:" + ones +" , 5:" + fives +" , 10:" + tens );
     }
+
+
+
+
 }
      /*   public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
