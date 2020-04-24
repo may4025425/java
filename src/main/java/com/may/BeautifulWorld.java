@@ -6,19 +6,12 @@ public class BeautifulWorld {
     public static void main(String[] args) {
         PiggyBank piggy = new PiggyBank();
         Scanner scanner = new Scanner(System.in);
-        int n = 0;
         System.out.println("Total: " + piggy.total);
         System.out.println("Please put your coin?");
+        int n = 0;
         while (n != -1) {
-            n = scanner.nextInt();
-            switch (n) {
-                case 1:
-                case 5:
-                case 10:
-                    piggy.add(n);
-                    break;
-                default:
-            }
+            n = scanner.nextInt(); //為何要用回圈？要讓他重複執行啊！
+            piggy.add(n);
             System.out.println("Total: " + piggy.total);
             piggy.showCoins();
         }

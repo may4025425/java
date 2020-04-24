@@ -5,16 +5,53 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PiggyBank {
-/*    int total;//預設值為0
+    int total;//預設值為0
+    File file = new File("money.txt");
+    int ones,fives,tens;
 
-    public void add(int n) {
+    public PiggyBank(){
+        try {
+            FileReader fileReader = new FileReader(file);
+            total = fileReader.read();//要先讀進去，再讀進去
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void showCoins() {
+    public void add(int n) {
+        switch (n){
+            case 1:
+                total += n;
+                ones ++;
+                break;
+            case 5:
+                total += n;
+                fives ++;
+                break;
+            case 10:
+                total +=n;
+                tens ++;
+                break;
+            default:
+                break;
+        }
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(total);
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    }*/
-    int total = 0;
+    public void showCoins() {
+        System.out.println("一元："+ones+"個，"+"五元："+fives+"個，"+"十元："+tens+"個");
+    }
+   /* int total = 0;
     int ones = 0, fives = 0, tens;
      File dataFile =new File("piggy.txt");
     public PiggyBank(){
@@ -71,7 +108,7 @@ public class PiggyBank {
     public void showCoins() {
         System.out.println("1:" + ones +" , 5:" + fives +" , 10:" + tens );
     }
-
+*/
 
 
 
