@@ -7,6 +7,7 @@ public class BeautifulWorld {
         PiggyBank piggy = new PiggyBank();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Total: " + piggy.total);
+        piggy.showCoins();
         System.out.println("Please put your coin?");
         int n = 0;
         while (n != -1) {

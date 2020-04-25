@@ -5,42 +5,38 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PiggyBank {
+
     int total;//預設值為0
     File file = new File("money.txt");
-    int ones,fives,tens;
+    int ones, fives, tens;
 
-    public PiggyBank(){
+    public PiggyBank() {
         try {
-            FileReader fileReader = new FileReader(file);
-            total = fileReader.read();//要先讀進去，再讀進去
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            String s = bufferedReader.readLine();//要先把要儲存的資料都讀進去，再寫出來
+            total = Integer.parseInt(s);//要輸出的是total!要將s轉為int!
+            ones = Integer.parseInt(bufferedReader.readLine());
+            fives = Integer.parseInt(bufferedReader.readLine());
+            tens = Integer.parseInt(bufferedReader.readLine());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();//這裏是執行上有問題，看下方說明自己家的
         }
 
     }
 
-    public void add(int n) {
-        switch (n){
-            case 1:
-                total += n;
-                ones ++;
-                break;
-            case 5:
-                total += n;
-                fives ++;
-                break;
-            case 10:
-                total +=n;
-                tens ++;
-                break;
-            default:
-                break;
-        }
+    public void setTotal(int total) {//set&get好像是種內定方法，他會根據你最上方所設的屬性變數去搭配使用
+        //括號內的int total是區域變數，可以透過this來指定用屬性變數
+        this.total = total;
         try {
             FileWriter fileWriter = new FileWriter(file);
-            fileWriter.write(total);
+            fileWriter.write(String.valueOf(this.total) +'\n');
+            fileWriter.write(ones +"\n");//要是字串！！不然會是框框
+            fileWriter.write(fives +"\n");
+            fileWriter.write(tens+"");
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {
@@ -48,16 +44,37 @@ public class PiggyBank {
         }
     }
 
-    public void showCoins() {
-        System.out.println("一元："+ones+"個，"+"五元："+fives+"個，"+"十元："+tens+"個");
+    public void add(int n) {
+        switch (n) {
+            case 1:
+                ones++;
+                setTotal(total + n);
+                break;
+            case 5:
+                fives++;
+                setTotal(total + n);
+                break;
+            case 10:
+                tens++;
+                setTotal(total + n);
+                break;
+            default:
+                break;
+        }
+
     }
-   /* int total = 0;
+
+    public void showCoins() {
+        System.out.println("一元：" + ones + "個，" + "五元：" + fives + "個，" + "十元：" + tens + "個");
+    }
+}
+    /*
+    int total = 0;
     int ones = 0, fives = 0, tens;
      File dataFile =new File("piggy.txt");
     public PiggyBank(){
-        FileReader fileReader = null;
         try {
-            fileReader = new FileReader(dataFile);
+            FileReader fileReader = new FileReader(dataFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String s = bufferedReader.readLine();
             total = Integer.parseInt(s);
@@ -73,7 +90,7 @@ public class PiggyBank {
         }
     }
     public  void setTotal(int total){
-        this.total = this.total + total;
+        this.total = total;
         try {
             FileWriter fileWriter = new FileWriter(dataFile);
             fileWriter.write(this.total +"\n");
@@ -90,15 +107,15 @@ public class PiggyBank {
         switch (n){
             case 1:
                 ones =ones + 1;
-                setTotal(n);
+                setTotal(total + n);
                 break;
             case 5:
                 fives += 1;
-                setTotal(n);
+                setTotal(total + n);
                 break;
             case 10 :
                 tens += 1;
-                setTotal(n);
+                setTotal(total + n);
                 break;
             default:
                 break;
@@ -108,11 +125,8 @@ public class PiggyBank {
     public void showCoins() {
         System.out.println("1:" + ones +" , 5:" + fives +" , 10:" + tens );
     }
-*/
 
-
-
-}
+}*/
      /*   public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = 0;
@@ -227,4 +241,5 @@ public class PiggyBank {
             System.out.println("無法處理!");
         }
 */
+
 
