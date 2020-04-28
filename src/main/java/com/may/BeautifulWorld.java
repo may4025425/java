@@ -19,3 +19,13 @@ public class BeautifulWorld {
     }
 }
 
+/*
+1.建構子擺放的class正確，呼叫的方法的擺放順序及位置
+2.開檔案後，寫進去讀出來（放對位置），trycatch自動產生
+3.剩下就是：整數、字串的轉換，迴圈使用及條件限制
+ */
+/* 產生亂數： 1~n
+1.Random random = new Random();
+  int r = random.nextInt(42)+1;
+2.int r = (int) (Math.random()*100+1);
+ */
