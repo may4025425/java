@@ -5,10 +5,10 @@ import java.io.*;
 public class ReadTester {
     public static void main(String[] args) {
         try {
-            FileReader fr = new FileReader("abc.txt");
+            FileReader fr = new FileReader("data.txt");
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
-            while (line !=null){
+            while (line != null){
                 System.out.println(line);
                 line = br.readLine();
             }
