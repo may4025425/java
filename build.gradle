@@ -23,3 +23,6 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+tasks.withType(JavaCompile){ //中文
+    options.encoding = "UTF-8"
+}
