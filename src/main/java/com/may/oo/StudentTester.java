@@ -9,8 +9,11 @@ public class StudentTester {
         teacher.addStudent(joe);
         teacher.addStudent(jerry);
         teacher.addStudent(jason);
+
  /*點名       for (int i = 0; i < teacher.students.size(); i++) {
             teacher.students.get(i).report();
+
+            fori+tab鍵＝快速形成for迴圈
         }*/
         teacher.reportAll();
     }
