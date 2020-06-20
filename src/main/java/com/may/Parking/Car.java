@@ -4,8 +4,10 @@ public class Car {
     String id;
     long entering;
     long leaving;
-    public Car (String id){
+    public Car (String id){   //command+n -> constructer
         this.id = id;
         entering= System.currentTimeMillis();
+
     }
+
 }
