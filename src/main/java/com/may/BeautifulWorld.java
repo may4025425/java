@@ -3,20 +3,20 @@ package com.may;
 import java.util.Scanner;
 
 public class BeautifulWorld {
-//    public static void main(String[] args) {
-//        PiggyBank piggy = new PiggyBank();
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Total: " + piggy.total);
-//        piggy.showCoins();
-//        System.out.println("Please put your coin?");
-//        int n = 0;
-//        while (n != -1) {
-//            n = scanner.nextInt(); //為何要用回圈？要讓他重複執行啊！
-//            piggy.add(n);
-//            System.out.println("Total: " + piggy.total);
-//            piggy.showCoins();
-//        }
-//    }
+    public static void main(String[] args) {
+        PiggyBank piggy = new PiggyBank();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Total: " + piggy.total);
+        piggy.showCoins();
+        System.out.println("Please put your coin?");
+        int n = 0;
+            while (n != -1) {
+                n = scanner.nextInt(); //為何要用回圈？要讓他重複執行啊！
+                piggy.add(n);
+                System.out.println("Total: " + piggy.total);
+                piggy.showCoins();
+        }
+    }
 }
 
 /*
@@ -26,6 +26,6 @@ public class BeautifulWorld {
  */
 /* 產生亂數： 1~n
 1.Random random = new Random();
-  int r = random.nextInt(42)+1;
+  int r = random.nextInt(42)+1;（產生1~42的亂數)
 2.int r = (int) (Math.random()*100+1);
  */

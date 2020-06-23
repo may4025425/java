@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PiggyBank {
-/*
+
     int total;//預設值為0
     File file = new File("money.txt");
     int ones, fives, tens;
@@ -33,10 +33,13 @@ public class PiggyBank {
         this.total = total;
         try {
             FileWriter fileWriter = new FileWriter(file);
+            //total = 0
             fileWriter.write(String.valueOf(this.total) +'\n');
-            fileWriter.write(ones +"\n");//要是字串！！不然會是框框
+            //要是字串！！不然會是框框
+            fileWriter.write(ones +"\n");
             fileWriter.write(fives +"\n");
             fileWriter.write(tens+""+"\n");
+            //total = 計算過的
             fileWriter.write(this.total +"元");
             fileWriter.flush();
             fileWriter.close();
@@ -68,7 +71,7 @@ public class PiggyBank {
     public void showCoins() {
         System.out.println("一元：" + ones + "個，" + "五元：" + fives + "個，" + "十元：" + tens + "個");
     }
-}*/
+}
     /*
     int total = 0;
     int ones = 0, fives = 0, tens;
@@ -128,6 +131,7 @@ public class PiggyBank {
     }
 
 }*/
+    /*
         public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = 0;
@@ -174,7 +178,7 @@ public class PiggyBank {
         }
 
     }
-}
+}*/
     /*
         Scanner scanner = new Scanner(System.in);
         String yesorno;
